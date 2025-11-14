@@ -56,6 +56,8 @@ const MyBookings = () => {
     }
   };
 
+  
+
   useEffect(() => {
     if (!authLoading && !clientEmail) {
       setBookings([]);
