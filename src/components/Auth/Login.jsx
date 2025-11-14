@@ -29,7 +29,7 @@ const Login = () => {
                 navigate('/');
 
                 // Send user data to backend (non-blocking)
-                fetch('http://localhost:3000/users', {
+                fetch('https://synvo-it-solutions-server.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -78,7 +78,7 @@ const Login = () => {
                 };
 
                 // Send user data to backend (non-blocking)
-                fetch('http://localhost:3000/users', {
+                fetch('https://synvo-it-solutions-server.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
