@@ -13,7 +13,6 @@ const Register = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-
     const handleGoogleSignIn = () => {
         signInWithGoogle()
             .then(result => {
