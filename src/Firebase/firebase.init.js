@@ -23,13 +23,6 @@ const firebaseConfig = {
 
 
 
-
-
-
-
-
-
-
 };
 
 // Initialize Firebase
