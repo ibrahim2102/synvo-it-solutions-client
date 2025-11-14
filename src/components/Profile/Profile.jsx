@@ -229,8 +229,7 @@ const Profile = () => {
           </div>
         )}
 
-        {/* Existing profile cards (Account Details, Service Activity, etc.) can stay below */}
-        {/* ... */}
+        
       </div>
     </div>
   );
