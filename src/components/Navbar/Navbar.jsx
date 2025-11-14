@@ -7,6 +7,8 @@ const Navbar = () => {
   const { user, logOut } = use(AuthContext);
   const { theme, toggleTheme } = useContext(ThemeContext);
 
+
+  
   const navLinks = (
     <>
       <li>
