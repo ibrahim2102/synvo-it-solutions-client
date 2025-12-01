@@ -71,9 +71,7 @@ const MyBookings = () => {
     const controller = new AbortController();
     fetchBookings(controller.signal);
     return () => controller.abort();
-  }, 
-//   [authLoading, clientEmail]
-);
+  }, [authLoading, clientEmail]);
 
   const handleDelete = async (booking) => {
     const id = normalizeId(booking);
