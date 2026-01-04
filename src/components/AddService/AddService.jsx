@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import { toast } from 'react-toastify';
 
-const API_BASE = 'https://synvo-it-solutions-server.vercel.app';
+const API_BASE = 'https://synvo-it-solution-server.vercel.app';
 
 const AddService = () => {
   const { user, loading: authLoading } = useContext(AuthContext);
@@ -123,7 +123,7 @@ const AddService = () => {
 
       // Redirect to My Services after 2 seconds
       setTimeout(() => {
-        navigate('/my-services');
+        navigate('/dashboard/my-services');
       }, 2000);
     } catch (err) {
       console.error('Error adding service:', err);
@@ -400,7 +400,7 @@ const AddService = () => {
               <button
                 type="button"
                 className="btn btn-outline"
-                onClick={() => navigate('/my-services')}
+                onClick={() => navigate('/dashboard/my-services')}
                 disabled={isSubmitting}
               >
                 Cancel

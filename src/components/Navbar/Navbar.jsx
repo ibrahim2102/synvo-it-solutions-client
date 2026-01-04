@@ -8,31 +8,112 @@ const Navbar = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
 
-  
+
+
   const navLinks = (
     <>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink 
+          to="/" 
+          className={({ isActive }) =>
+            isActive
+              ? "px-4 py-2 rounded-lg bg-primary text-primary-content font-medium transition-colors"
+              : "px-4 py-2 rounded-lg bg-base-200 hover:bg-base-300 text-base-content font-medium transition-colors"
+          }
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to="/services">Services</NavLink>
+        <NavLink 
+          to="/services"
+          className={({ isActive }) =>
+            isActive
+              ? "px-4 py-2 rounded-lg bg-primary text-primary-content font-medium transition-colors"
+              : "px-4 py-2 rounded-lg bg-base-200 hover:bg-base-300 text-base-content font-medium transition-colors"
+          }
+        >
+          Services
+        </NavLink>
       </li>
       {user && (
+      <>
+        <li>
+          <NavLink 
+            to="/dashboard"
+            className={({ isActive }) =>
+              isActive
+                ? "px-4 py-2 rounded-lg bg-primary text-primary-content font-medium transition-colors"
+                : "px-4 py-2 rounded-lg bg-base-200 hover:bg-base-300 text-base-content font-medium transition-colors"
+            }
+          >
+            Dashboard
+          </NavLink>
+        </li>
+      </>
+    )}
+
+
+
+
+
+
+
+
+
+      {/* {user && (
         <>
           <li>
-            <NavLink to="/my-services">My Services</NavLink>
+            <NavLink 
+              to="/my-services"
+              className={({ isActive }) =>
+                isActive
+                  ? "px-4 py-2 rounded-lg bg-primary text-primary-content font-medium transition-colors"
+                  : "px-4 py-2 rounded-lg bg-base-200 hover:bg-base-300 text-base-content font-medium transition-colors"
+              }
+            >
+              My Services
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/add-service">Add Service</NavLink>
+            <NavLink 
+              to="/add-service"
+              className={({ isActive }) =>
+                isActive
+                  ? "px-4 py-2 rounded-lg bg-primary text-primary-content font-medium transition-colors"
+                  : "px-4 py-2 rounded-lg bg-base-200 hover:bg-base-300 text-base-content font-medium transition-colors"
+              }
+            >
+              Add Service
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/my-bookings">My Bookings</NavLink>
+            <NavLink 
+              to="/my-bookings"
+              className={({ isActive }) =>
+                isActive
+                  ? "px-4 py-2 rounded-lg bg-primary text-primary-content font-medium transition-colors"
+                  : "px-4 py-2 rounded-lg bg-base-200 hover:bg-base-300 text-base-content font-medium transition-colors"
+              }
+            >
+              My Bookings
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/profile">Profile</NavLink>
+            <NavLink 
+              to="/profile"
+              className={({ isActive }) =>
+                isActive
+                  ? "px-4 py-2 rounded-lg bg-primary text-primary-content font-medium transition-colors"
+                  : "px-4 py-2 rounded-lg bg-base-200 hover:bg-base-300 text-base-content font-medium transition-colors"
+              }
+            >
+              Profile
+            </NavLink>
           </li>
+          
         </>
-      )}
+      )} */}
     </>
   );
 
@@ -47,7 +128,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-base-100/90 shadow-sm sticky top-0 z-50">
       <div className="navbar-start">
         <div className="dropdown">
           <div

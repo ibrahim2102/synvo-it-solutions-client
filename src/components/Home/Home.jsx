@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import ServicesGrid from '../ServicesGrid/ServicesGrid.jsx';
 import Slider from '../Slider/Slider.jsx';
+import { Link } from 'react-router';
 
-const API_BASE = 'https://synvo-it-solutions-server.vercel.app';
+const API_BASE = 'https://synvo-it-solution-server.vercel.app';
 
 const normalizeId = (service) =>
   service._id?.$oid || service._id || service.id || '';
@@ -52,7 +53,7 @@ const Home = () => {
     <div className="space-y-16">
       <Slider />
 
-      <section className="container mx-auto px-4 space-y-6">
+      <section className="container mx-auto px-4 space-y-6 ">
         <header className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div>
             <h2 className="text-3xl font-bold">Top Rated Services</h2>
@@ -78,7 +79,7 @@ const Home = () => {
             <span>No rated services yet. Check back soon!</span>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {topRated.map((service) => {
               const id = normalizeId(service);
               const averageRating = service.averageRating || 0;
@@ -220,7 +221,44 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="container mx-auto px-4 py-16">
+
+      <section className="container mx-auto px-4 py-0">
+  <header className="text-center max-w-2xl mx-auto space-y-3 mb-12">
+    <h2 className="text-3xl font-bold">Why Choose Synvo?</h2>
+    <p className="text-gray-600">
+      We connect you with trusted professionals and make service booking simple, secure, and reliable.
+    </p>
+  </header>
+
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div className="card bg-base-100 shadow">
+      <div className="card-body space-y-2">
+        <h3 className="font-semibold text-lg">Verified Providers</h3>
+        <p className="text-sm text-gray-600">
+          Every provider is reviewed to ensure quality, professionalism, and reliability.
+        </p>
+      </div>
+    </div>
+    <div className="card bg-base-100 shadow">
+      <div className="card-body space-y-2">
+        <h3 className="font-semibold text-lg">Transparent Pricing</h3>
+        <p className="text-sm text-gray-600">
+          Clear pricing with no hidden fees. Know exactly what you’re paying for.
+        </p>
+      </div>
+    </div>
+    <div className="card bg-base-100 shadow">
+      <div className="card-body space-y-2">
+        <h3 className="font-semibold text-lg">Secure Payments</h3>
+        <p className="text-sm text-gray-600">
+          Safe and reliable payment system to protect both clients and providers.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section className="container mx-auto px-4 py-0">
         <div className="card bg-linear-to-r from-primary/90 to-secondary shadow-xl text-white">
           <div className="card-body flex flex-col lg:flex-row items-center gap-6">
             <div className="flex-1 space-y-4">
@@ -232,16 +270,154 @@ const Home = () => {
               </p>
             </div>
             <div className="flex gap-3">
-              <a href="/add-service" className="btn btn-outline btn-lg">
+            <Link to="/dashboard/add-service" className="btn btn-outline btn-lg">
                 List a Service
-              </a>
-              <a href="/my-services" className="btn btn-base-100 btn-lg">
+              </Link>
+                <Link to="/dashboard" className="btn btn-base-100 btn-lg">
                 Manage Listings
-              </a>
+              </Link>
             </div>
           </div>
         </div>
       </section>
+
+      <section className="bg-base-200 py-0">
+  <div className="container mx-auto px-4">
+    <header className="flex justify-between items-center mb-8">
+      <h2 className="text-3xl font-bold">Popular Categories</h2>
+      <a href="/services" className="btn btn-sm btn-outline">
+        Browse All
+      </a>
+    </header>
+
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+      {["Web Development", "UI/UX Design", "Digital Marketing", "IT Support"].map(
+        (cat) => (
+          <div
+            key={cat}
+            className="card bg-base-100 shadow hover:shadow-lg transition"
+          >
+            <div className="card-body text-center">
+              <h3 className="font-semibold">{cat}</h3>
+            </div>
+          </div>
+        )
+      )}
+    </div>
+  </div>
+</section>
+
+<section className="container mx-auto px-4 py-0">
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+    <div>
+      <h3 className="text-4xl font-bold text-primary">1K+</h3>
+      <p className="text-sm text-gray-600">Active Services</p>
+    </div>
+    <div>
+      <h3 className="text-4xl font-bold text-primary">500+</h3>
+      <p className="text-sm text-gray-600">Verified Providers</p>
+    </div>
+    <div>
+      <h3 className="text-4xl font-bold text-primary">5K+</h3>
+      <p className="text-sm text-gray-600">Happy Clients</p>
+    </div>
+    <div>
+      <h3 className="text-4xl font-bold text-primary">4.8★</h3>
+      <p className="text-sm text-gray-600">Average Rating</p>
+    </div>
+  </div>
+</section>
+
+<section className="bg-base-200 py-0">
+  <div className="container mx-auto px-4">
+    <header className="text-center max-w-xl mx-auto mb-10">
+      <h2 className="text-3xl font-bold">What Clients Say</h2>
+      <p className="text-gray-600">
+        Real feedback from people who found trusted services on Synvo.
+      </p>
+    </header>
+
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {["Amazing service!", "Highly professional", "Fast & reliable"].map(
+        (text, index) => (
+          <div key={index} className="card bg-base-100 shadow">
+            <div className="card-body">
+              <p className="text-sm text-gray-600">“{text}”</p>
+              <p className="mt-4 font-semibold">— Verified Client</p>
+            </div>
+          </div>
+        )
+      )}
+    </div>
+  </div>
+</section>
+
+<section className="container mx-auto px-4 py-0">
+  <div className="card bg-base-100 shadow-xl">
+    <div className="card-body flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <h2 className="text-2xl font-bold">Are you a service provider?</h2>
+        <p className="text-gray-600">
+          Join Synvo today and start reaching clients who are looking for your skills.
+        </p>
+      </div>
+      <a href="/register" className="btn btn-primary btn-lg">
+        Get Started
+      </a>
+    </div>
+  </div>
+</section>
+
+<section className="bg-base-200 py-0 mb-5">
+  <div className="container mx-auto px-4 max-w-xl text-center space-y-4">
+    <h2 className="text-3xl font-bold">Stay Updated</h2>
+    <p className="text-gray-600">
+      Get updates on new services, offers, and platform improvements.
+    </p>
+    <div className="join w-full">
+      <input
+        type="email"
+        placeholder="Enter your email"
+        className="input input-bordered join-item w-full"
+      />
+      <button className="btn btn-primary join-item">
+        Subscribe
+      </button>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
   );
 };

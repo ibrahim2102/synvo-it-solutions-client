@@ -6,3 +6,8 @@
   --color-primary: blue;
   --color-secondary: teal;
 }
+
+@plugin "daisyui/theme" {
+  name: "alt";
+  --color-primary: indigo;
+}

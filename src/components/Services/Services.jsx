@@ -10,7 +10,7 @@ const Services = () => {
                 All Services
             </h1>
             <ServicesGrid 
-                apiEndpoint="https://synvo-it-solutions-server.vercel.app/products" 
+                apiEndpoint="https://synvo-it-solution-server.vercel.app/products" 
                 showFilter={true}
             />
         </div>

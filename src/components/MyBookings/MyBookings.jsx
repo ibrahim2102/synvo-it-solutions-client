@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import { toast } from 'react-toastify';
 
-const API_BASE = 'https://synvo-it-solutions-server.vercel.app';
+const API_BASE = 'https://synvo-it-solution-server.vercel.app';
 
 const normalizeId = (booking) =>
   booking._id?.$oid || booking._id || booking.id || '';

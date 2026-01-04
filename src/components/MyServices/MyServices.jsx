@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import { toast } from 'react-toastify';
 
-const API_BASE = 'https://synvo-it-solutions-server.vercel.app';
+const API_BASE = 'https://synvo-it-solution-server.vercel.app';
 
 const MyServices = () => {
   const { user, loading: authLoading } = useContext(AuthContext);
@@ -76,7 +76,7 @@ const MyServices = () => {
 
   // changed code: Add Service handler
   const handleAddService = () => {
-    navigate('/add-service');
+    navigate('/dashboard/add-service');
   };
 
   // changed code: Open Edit Modal

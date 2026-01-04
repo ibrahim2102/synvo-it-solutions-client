@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import { toast } from 'react-toastify';
 
-const API_BASE = 'https://synvo-it-solutions-server.vercel.app';
+const API_BASE = 'https://synvo-it-solution-server.vercel.app';
 
 const normalizeId = (id) =>
   id?.$oid || id?.toString?.() || id || '';
@@ -179,7 +179,7 @@ const ServiceDetails = () => {
       const savedBooking = await response.json();
       toast.success('Booking submitted successfully!');
       handleCloseBookingModal();
-      navigate('/my-bookings', {
+      navigate('/dashboard/my-bookings', {
         replace: true,
         state: { highlightId: normalizeId(savedBooking._id) },
       });
